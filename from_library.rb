@@ -4,4 +4,8 @@ class FDC
 		s.gsub(":","=>")
 	end
 	
+	def self.from_hash s
+		s
+	end
+
 end
