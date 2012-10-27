@@ -1,9 +1,3 @@
-class FDC
-	
-	def self.to_json s
-		s.gsub("=>",":")	
-	end
-
 	def self.to_xml s
 		n = 0
 		name_parent = []
@@ -32,16 +26,3 @@ end
 		end
 	sxml
 	end
-
-	protected
-	
-	def self.transform_symbols_to_string s
-		is_string=false
-		for i in 0..s.length-1 
-			if (s[i]=="\"") 
-				is_string != is_string
-			end
-		end
-	end
-
-end
