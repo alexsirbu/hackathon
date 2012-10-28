@@ -2,9 +2,7 @@ class FDC
 		
 	def self.to_xls s
 	  lines=[]
-	  items=[]
-	  vari1=""
-	  vari2=""
+	  columns=[]
 	  cols=0
 	  rows=0
 	  s=s.gsub("\"",'')
@@ -28,8 +26,8 @@ class FDC
 	  for i in 2..lines.length-1
 	    columns=lines[i].split(",")
 	    s+="<Row>"
-	    for i in 0..columns.length/2-1
-	    s+="<Cell><Data ss:Type=\"String\">"+columns[i*2+1]+"</Data></Cell>"
+	    for j in 0..columns.length/2-1
+	    s+="<Cell><Data ss:Type=\"String\">"+columns[j*2+1]+"</Data></Cell>"
 	    end
 	    s+="</Row></Table></Worksheet></Workbook>"
 	  end
