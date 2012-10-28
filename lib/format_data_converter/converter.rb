@@ -34,6 +34,7 @@ class Converter
 	    vari1=vari1[0..-2]
 	    s+="\n"+vari1
 	  end
+		s
 	end	
 
 	def self.to_xls s
@@ -68,7 +69,7 @@ class Converter
 	    end
 	    s+="</Row></Table></Worksheet></Workbook>"
 	  end
-	  puts s
+	  s
 	end		
 
 	def self.to_xml s

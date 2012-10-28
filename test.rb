@@ -15,7 +15,7 @@ class Test
 	end
 
 	def self.csv
-		FDC.detect_and_to_csv '[{"h1"=>"v11","h2"=>"v12","h3"=>"v13"},{"h1"=>"v11","h2"=>"v12","h3"=>"v13"}]'
+		FDC.detect_and_to_csv "[{\"h1\"=>\"v11\",\"h2\"=>\"v12\",\"h3\"=>\"v13\"},{\"h1\"=>\"v11\",\"h2\"=>\"v12\",\"h3\"=>\"v13\"}]"
 	end
 
 	def self.xls

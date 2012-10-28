@@ -5,7 +5,7 @@ Because, if you work with many data formats, you need gems specifically for each
 
 To install, run:
 
-gem install format_data_converter -v '0.9.0'
+gem install format_data_converter -v '0.9.2'
 
 To convert, you need to run:
 
