@@ -1,6 +1,6 @@
 class FDC
 		
-	def self.from_cvs s
+	def self.from_csv s
 	  lines=[]
 	  cols=[]
 	  items=[]
