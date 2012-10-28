@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'format_data_converter'
-  s.version     = '0.9.0'
+  s.version     = '0.9.1'
   s.date        = '2012-10-28'
   s.summary     = "File Data Converter"
   s.description = "Detects input data(JSON,XML,CSV,Hash,Activerecord) and transforms it in a format chosen by the user (JSON,XML,Hash,CSV,Excel,YAML)"

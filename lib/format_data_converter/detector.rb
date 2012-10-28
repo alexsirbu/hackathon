@@ -56,6 +56,9 @@ class Detector
 	
 	def self.detect_hash s
 		i=0
+		while s[i]=="[" do
+			i=i+1
+		end
 		if s[i] == "{" && (s[i+1] == "\'" || s[i+1] == "\"" || s[i+1] == ":")
 			if s[i+1] == "\'" || s[i+1] == "\""			
 				aux = s.index(s[i+1],i+2) 
