@@ -1,5 +1,11 @@
 class FDC
-		
+
+	def self.stringify(obj)
+    return obj.inject({}){|memo,(k,v)| memo[k.to_s] =  stringify(v); memo} if obj.is_a? Hash
+    return obj.inject([]){|memo,v    | memo           << stringify(v); memo} if obj.is_a? Array
+    return obj
+	end
+
 	def self.to_csv s
 	  lines=[]
 	  items=[]
@@ -29,6 +35,7 @@ class FDC
 	    vari1=vari1[0..-2]
 	    s+="\n"+vari1
 	  end
+	  s.gsub(" ",'')
 	end
 	
 	def self.detect_csv s
