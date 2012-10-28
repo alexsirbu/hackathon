@@ -3,7 +3,9 @@ class FDC
 		if detect_json s
 			from_json(s)
 		elsif detect_hash s
-			from_hash(s)		
+			from_hash(s)
+		elsif detect_activerecord s
+			from_activerecord(s)
 		else
 			"Type not supported or wrong input!"
 		end
@@ -51,5 +53,15 @@ class FDC
 		else
 			false
 		end	 
+	end
+
+	def self.detect_activerecord s
+		i=0		
+		i=i+1 if s[i]=="["
+		if s[i..i+1] == "#<"
+			true
+		else
+			false
+		end	
 	end
 end

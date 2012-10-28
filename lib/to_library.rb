@@ -5,7 +5,6 @@ class FDC
 		s.gsub("=>",":")	
 	end
 
-	
 	def self.to_hash_symbols s
 		s=symbolize(eval(s)).to_s
 	end
