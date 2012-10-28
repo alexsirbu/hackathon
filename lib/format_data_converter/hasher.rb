@@ -1,31 +1,54 @@
 class Hasher
 		
+	def self.from_csv s
+	  lines=[]
+	  cols=[]
+	  items=[]
+	  vari=""
+	  s=s.gsub("\"",'')
+	  puts s
+	  lines=s.split("\n")
+	  cols=lines[0].split(",").map{|word| word="\""+word+"\"=>"}
+	  for i in 1..lines.length-1
+	  items=lines[i].split(",").map{|word| word="\""+word+"\","}
+	   var=items[-1]
+	   items[-1]=var[0..-2]+"},{"
+	   for j in 0..cols.length-1
+	     vari+=cols[j]+items[j]
+	   end
+	  end
+	  s="[{"+vari[0..-3]+"]"
+	end		
+
 	def self.from_xml s
 		shash = ""
-		arbre = []
 		for i in 0..s.length-2
-			if (s[i] == ">") 
+			if (s[i] == ">")
 				if (s[i+1] == "<")
-					if (s[i+2] != "/") then shash << '"=>['
+					if (s[i+2] != "/")
+						saux = s.clone
+						if (s[saux.index(">", i+2)+2 .. saux.index(">", i+2)+3] == "</") then shash << '"=>['
+						else shash<< ","
+						end
 					end
 				else shash << '"=>'
-				saux = s.clone
-				shash << saux.slice(i+1..(saux.index("<", i+2)-1))
-				end
-			elsif (s[i] == "<")
-				if (s[i+1] == "/") 
 					saux = s.clone
-					if (s[saux.index(">", i+1)+1 .. saux.index(">", i+1)+2] == "</") then shash << '}]'
-					else shash << '}'
-					end
-				else shash << '{"'
-				saux = s.clone
-				shash << saux.slice(i+1..(saux.index(">", i+2)-1))
+					shash << '"' << saux.slice(i+1..(saux.index("<", i+2)-1)) << '"'
+				end
+				elsif (s[i] == "<")
+					if (s[i+1] == "/")
+						saux = s.clone
+						if (s[saux.index(">", i+1)+1 .. saux.index(">", i+1)+2] == "</") then shash << '}]'
+						else shash << '}'
+						end
+					else shash << '{"'
+					saux = s.clone
+					shash << saux.slice(i+1..(saux.index(">", i+2)-1))
 				end
 			end
 		end
 		shash
-	end	
+	end
 	
 	def self.from_json s
 		s.gsub(":","=>")

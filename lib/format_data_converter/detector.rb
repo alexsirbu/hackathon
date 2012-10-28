@@ -8,9 +8,22 @@ class Detector
 			Hasher.from_hash(s)
 		elsif detect_activerecord s
 			Hasher.from_activerecord(s)
+		elsif detect_csv
+			Hasher.from_csv(s)
 		else
 			"Type not supported or wrong input!"
 		end
+	end	
+
+	def self.detect_csv s
+	  str=s
+	  lines=str.split("\n")
+	  return false if lines.length < 2
+	  counter=lines[0].split(",").length
+	  for i in 1..lines.length-1
+	    return false if lines[i].split(",").length != counter
+	  end
+		true
 	end	
 
 	def self.detect_xml s

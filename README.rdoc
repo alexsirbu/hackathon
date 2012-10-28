@@ -1,2 +1,17 @@
-fdc
-=========
+Format Data Converter
+=====================
+
+Because, if you work with many data formats, you need gems specifically for each of the types you're working with, Format Data Converter comes to help you, autodetecting the input type from a number of known types (JSON, XML, CSV, Hash, Activerecord) and converting it to the type required in your application (currently supporting JSON, XML, CSV, Excel and Hash and working on YAML).
+
+To install, run:
+
+gem install format_data_converter -v '0.9.0'
+
+To convert, you need to run:
+
+FDC.detect_and_to_*FORMAT*, where format may be csv, json, hash_symbols (puts symbols instead of strings), hash, xml, xls.
+
+As this is a beta version, there are still improvements to be made. Feel free to expand the code and make it better!
+
+Hope this gem helps you when you work with multiple data types.
+
